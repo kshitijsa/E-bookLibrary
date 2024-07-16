@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Books store</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="rotated_string()">
+    <div class="container">
+        <div class="box1-con">
+            <div class="box1">
+                <div class="image">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/019/900/152/small_2x/old-book-watercolor-illustration-png.png" alt="">
+                    <pre id="target"> E-Books LibrarY </pre>
+                </div>
+                <div class="search">
+                    <input type="text" id="srch" placeholder="Search">
+                    <button>Search</button>
+                </div>
+                <div class="loginbtn">
+                    <button onclick="sign_upButton()">Log in</button>
+                </div>
+                <div class="signupbtn">
+                    <button onclick="sign_upButton()">Sign up</button>
+                </div>
+            </div>
+        </div> 
+        <div class="box2">
+            <div class="functions">
+                <div class="whislist"> 
+                    <div class="list">
+                        <div id="list-one">
+                            <div id="choice">
+                                <h2 id="book">Book</h2>
+                                <div class="hamburger" id="hamburgerMenu"><i class="ri-menu-add-line"></i></div>
+                            </div>
+                        </div>
+                        <h2>New Arrivals</h2>
+                        <h2>Fiction Books</h2>
+                        <h2>Today's deal</h2>
+                        <h2>Requested a Book</h2>
+                    </div>
+                    <div class="image2">
+                        <img src="https://d2g9wbak88g7ch.cloudfront.net/staticimages/wishlist_white.svg" width="30px" height="30px" alt="">
+                    </div>
+                </div>
+                <div class="discoverImg">
+                    <img src="https://www.bookswagon.com/images/promotionimages/web/2_CuratedWeb1505.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dropdown" class="dropdown-content">
+        <ul>
+            <li>Story Books</li>
+            <li>Horror</li>
+            <li>Mystery</li>
+            <li>Fantasy</li>
+            <li>Non-Fiction</li>
+        </ul>
+    </div>
+
+    <div id="sign-up">
+        <div class="first-icon"><i class="ri-close-large-fill"></i></div>
+    <div class="sign-all">
+        <div class="sign-content">
+            <h1>Hello!</h1>
+            <h5>use your email or another service to <br> continue with E-Books Library</h5>
+        </div>
+
+        <div id="buttons">
+            <div class="diff-btn"><button> <i class="ri-google-fill"></i>Continue with Google</button></div>
+            <div class="diff-btn"><button> <i class="ri-apple-fill"></i> Continue with Apple</button></div>
+            <div class="diff-btn"><button id="diff-btn2">Continue with email</button></div>
+        </div>
+
+        <div class="small-text">By continuing, you agree to our <a href="" target="_blank" class="link link--black">Terms of Service</a>.<br>Read our <a href="" target="_blank" class="link link--black">Privacy Policy</a>.</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
