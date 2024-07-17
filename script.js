@@ -1,3 +1,100 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to fetch books from Google Books API
+    function fetchBooks(query) {
+        const apiURL = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
+
+        fetch(apiURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Books data:', data); // Log the data to debug
+                const books = data.items || []; // Ensure items exist in the response
+
+                const container = document.getElementById('box3-part1');
+                container.innerHTML = ''; // Clear existing content
+
+                books.forEach(book => {
+                    const volumeInfo = book.volumeInfo;
+                    const part1 = document.createElement('div');
+                    part1.className = 'part1';
+
+                    part1.innerHTML = `
+                        <div class="image-con">
+                            <img src="${volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/150'}" alt="${volumeInfo.title}">
+                        </div>
+                        <div class="information">
+                            <h4>${volumeInfo.title}</h4>
+                            <p>Author: ${volumeInfo.authors ? volumeInfo.authors.join(', ') : 'Unknown'}</p>
+                            <p>Language: ${volumeInfo.language || 'Unknown'}</p>
+                            <p>Genres: ${volumeInfo.categories ? volumeInfo.categories.join(', ') : 'Unknown'}</p>
+                        </div>
+                        <div class="heart-img"><i class="ri-service-fill"></i></div>
+                    `;
+                    
+                    container.appendChild(part1);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    // Function to handle rotating text
+    function rotated_string() {
+        var element = document.querySelector("#target");
+        var textNode = element.childNodes[0];
+        var text = textNode.data;
+
+        setInterval(function(){
+            text = text[text.length - 1] + text.substring(0, text.length - 1);
+            textNode.data = text;
+        }, 200);
+    }
+
+    // Initial rotation on page load
+    rotated_string();
+
+    // Dropdown menu functionality
+    function dropDownButton() {
+        const hamburgerMenu = document.getElementById("hamburgerMenu");
+        const dropdown = document.getElementById("dropdown");
+
+        hamburgerMenu.addEventListener("click", function() {
+            dropdown.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!hamburgerMenu.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove("show");
+            }
+        });
+    }
+
+    dropDownButton();
+
+    function sign_upButton() {
+        var signUp = document.querySelector("#sign-up");
+        var loginbtn = document.querySelector(".loginbtn");
+        
+        signUp.classList.add('show-signup');
+        loginbtn.classList.add('show-signup');
+    }
+
+    function closeSignUp() {
+        var signUp = document.querySelector("#sign-up");
+        signUp.classList.remove('show-signup');
+    }
+
+    // Example usage: Fetch books when the page loads
+    fetchBooks('javascript'); // Replace 'javascript' with your desired search query
+});
+
+
+
 function dropDownButton(){
     document.addEventListener("DOMContentLoaded", function() {
         const hamburgerMenu = document.getElementById("hamburgerMenu");
