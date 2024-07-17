@@ -74,6 +74,26 @@ document.addEventListener("DOMContentLoaded", function() {
     dropDownButton();
 
     fetchBooks('Harry potter'); 
+
+    document.getElementById('storyBooksMenu').addEventListener('click', function() {
+        fetchBooks('Story Books'); 
+    });
+
+    document.getElementById('horrorMenu').addEventListener('click', function() {
+        fetchBooks('Horror Books'); 
+    });
+
+    document.getElementById('mysteryMenu').addEventListener('click', function() {
+        fetchBooks('Mystery Books'); 
+    });
+
+    document.getElementById('fantasyMenu').addEventListener('click', function() {
+        fetchBooks('Fantasy Books'); 
+    });
+
+    document.getElementById('fictionMenu').addEventListener('click', function() {
+        fetchBooks('Fiction Books'); 
+    });
 });
 
 // for sign up or log in button
