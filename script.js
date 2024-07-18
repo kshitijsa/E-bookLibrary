@@ -94,10 +94,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('fictionMenu').addEventListener('click', function() {
         fetchBooks('Fiction Books'); 
     });
+
+    let search=document.getElementById('srch');
+    let search_btn=document.getElementById('srch-btn');
+    search_btn.addEventListener('click',()=>{
+        fetchBooks(search.value);
+    })
+
 });
 
 // for sign up or log in button
-function sign_upButton() {
+ function sign_upButton() {
     var signUp = document.querySelector("#sign-up");
     var iconbtn = document.querySelector(".first-icon");
     var loginbtn = document.querySelector(".loginbtn");
@@ -109,6 +116,6 @@ function sign_upButton() {
     iconbtn.addEventListener('click', function() {
         signUp.classList.remove('show-signup');
     });
-}
+ }
 
 
